@@ -1,0 +1,788 @@
+/* 
+   Cyberpunk Analyst Theme
+   Author: Bojooow (Assisted by Gemini)
+   Theme: Dark, Neon, Futuristic, Glassmorphism
+*/
+
+/* --- 1. Variables & Global Settings --- */
+:root {
+    /* Neon Colors */
+    --neon-cyan: #00f3ff;
+    --neon-blue: #0066ff;
+    --neon-purple: #bc13fe;
+    --neon-green: #0aff00;
+    --neon-pink: #ff0055;
+    
+    /* Backgrounds */
+    --bg-dark: #050505;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-hover: rgba(255, 255, 255, 0.08);
+    
+    /* Text */
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    
+    /* Borders & Gloss */
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-border-hover: 1px solid rgba(0, 243, 255, 0.5);
+    
+    /* Transitions */
+    --trans-fast: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    /* Subtle hex pattern overlay */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.05) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 1px, #111 1px, #111 2px),
+        repeating-linear-gradient(90deg, transparent, transparent 1px, #111 1px, #111 2px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 2. Typography & Utilities --- */
+h1, h2, h3, h4 {
+    color: var(--text-main);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+/* Animated Gradient Text */
+.highlight {
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-cyan));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 3s linear infinite;
+    font-weight: 800;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* --- 3. Hero Section --- */
+header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 60px; /* offset for fixed nav if added later */
+}
+
+/* Entrance Animations */
+header h1, header h2, header p, header .hero-btns {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+header h1 { animation-delay: 0.2s; font-size: 3.5rem; margin-bottom: 10px; }
+header h2 { animation-delay: 0.4s; font-size: 1.5rem; color: var(--neon-blue); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+header p { animation-delay: 0.6s; font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px; }
+header .hero-btns { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buttons */
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: var(--trans-fast);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: inline-block;
+}
+
+/* Primary Button */
+.btn:not(.btn-outline) {
+    background: var(--neon-blue);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+}
+
+.btn:not(.btn-outline):hover {
+    box-shadow: 0 0 25px var(--neon-blue), 0 0 50px var(--neon-blue);
+    transform: translateY(-3px);
+}
+
+/* Outline Button */
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    box-shadow: 0 0 5px rgba(0, 243, 255, 0.2);
+}
+
+.btn-outline:hover {
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+    transform: translateY(-3px);
+    color: #fff;
+    border-color: #fff;
+}
+
+/* --- 4. Sections Layout --- */
+section {
+    padding: 100px 0;
+}
+
+section h3 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* --- 5. Skills Grid --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    border: var(--glass-border);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: var(--trans-fast);
+    font-size: 1.1rem;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-card i {
+    font-size: 2.5rem;
+    color: var(--neon-cyan);
+    transition: var(--trans-fast);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+/* Hover Effects */
+.skill-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+.skill-card:hover i {
+    transform: scale(1.1);
+    color: #fff;
+    text-shadow: 0 0 20px var(--neon-cyan);
+}
+
+/* --- 6. Experience Timeline --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Glowing Vertical Line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px; /* Adjust based on dot position */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--neon-purple);
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+
+.timeline-item {
+    padding-left: 50px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+/* Pulsing Dots */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 13px; /* Center on line (20px line left + 1px half width - 8px half dot) */
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: var(--bg-dark);
+    border: 2px solid var(--neon-purple);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--neon-purple);
+    z-index: 1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(188, 19, 254, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(188, 19, 254, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(188, 19, 254, 0); }
+}
+
+.timeline-item h4 {
+    font-size: 1.4rem;
+    color: var(--neon-purple);
+    margin-bottom: 5px;
+}
+
+.timeline-item .company {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #ccc;
+    font-style: italic;
+}
+
+/* --- 7. Projects Grid --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border: var(--glass-border);
+    padding: 30px;
+    border-radius: 12px;
+    transition: var(--trans-fast);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Icon Header */
+.icon-header {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.icon-header i {
+    transition: var(--trans-fast);
+    /* Default pulse */
+    animation: textPulse 3s infinite;
+}
+
+@keyframes textPulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; text-shadow: 0 0 15px currentColor; }
+}
+
+/* Color Coding for Icons (Bonus) */
+.project-card:nth-child(1) .icon-header i { color: #ffae00; } /* HR Logistics - Orange */
+.project-card:nth-child(2) .icon-header i { color: var(--neon-pink); } /* Spa - Pink */
+.project-card:nth-child(3) .icon-header i { color: var(--neon-blue); } /* Messenger - Blue */
+.project-card:nth-child(4) .icon-header i { color: var(--neon-cyan); } /* RSPS */
+.project-card:nth-child(5) .icon-header i { color: var(--neon-purple); } /* TAMS */
+.project-card:nth-child(6) .icon-header i { color: var(--neon-green); } /* COLMS */
+.project-card:nth-child(7) .icon-header i { color: var(--neon-cyan); } /* FOLMS */
+.project-card:nth-child(8) .icon-header i { color: #ffffff; } /* EOS */
+.project-card:nth-child(9) .icon-header i { color: #00ffaa; } /* Transmittal */
+.project-card:nth-child(10) .icon-header i { color: #ffae00; } /* POS */
+.project-card:nth-child(11) .icon-header i { color: var(--neon-purple); } /* Logistics Old */
+
+
+.project-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.tech-stack {
+    font-size: 0.85rem;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.project-card p:not(.tech-stack) {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Project Card Hover State (Crucial) */
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--neon-blue); /* Default hover color */
+    box-shadow: 0 5px 30px rgba(0, 102, 255, 0.15);
+}
+
+/* Specific hover glow colors based on nth-child match is a bit complex in pure CSS without pre-processor loops to match generic glow, so we'll stick to a unified neon blue/cyan hover border for consistency or dynamic variables if set inline. For now, a strong unified glow. */
+
+/* Let's try to match the border hover color validity to the icon color roughly by rotating hue if we wanted complex, but let's stick to the prompt requirement: "The border should change to a bright neon color." */
+
+.project-card:nth-child(1):hover { border-color: #ffae00; box-shadow: 0 0 20px rgba(255, 174, 0, 0.4); }
+.project-card:nth-child(2):hover { border-color: var(--neon-pink); box-shadow: 0 0 20px rgba(255, 0, 85, 0.4); }
+.project-card:nth-child(3):hover { border-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0, 102, 255, 0.4); }
+.project-card:nth-child(4):hover { border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
+.project-card:nth-child(5):hover { border-color: var(--neon-purple); box-shadow: 0 0 20px rgba(188, 19, 254, 0.4); }
+
+
+/* --- 8. Contact & Footer --- */
+#contact {
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: var(--trans-fast);
+}
+
+.social-links a:hover {
+    color: var(--neon-cyan);
+    transform: scale(1.2);
+    text-shadow: 0 0 15px var(--neon-cyan);
+}
+
+footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* --- 9. Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.5rem; }
+    
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .timeline::before { left: 10px; }
+    .timeline-item { padding-left: 35px; }
+    .timeline-item::after { left: 4px; }
+    
+    .skills-grid, .project-grid {
+        grid-template-columns: 1fr; /* Fold perfectly to single column */
+    }
+}
+
+/* --- 10. Enhancements (Added) --- */
+
+/* 10.1 System Status Badge */
+.system-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Courier New', monospace;
+    color: var(--neon-green);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-shadow: 0 0 5px var(--neon-green);
+    z-index: 10;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--neon-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--neon-green);
+    animation: statusPulse 1.5s infinite;
+}
+
+@keyframes statusPulse {
+    0% { opacity: 1; box-shadow: 0 0 5px var(--neon-green); }
+    50% { opacity: 0.4; box-shadow: 0 0 2px var(--neon-green); }
+    100% { opacity: 1; box-shadow: 0 0 5px var(--neon-green); }
+}
+
+/* 10.2 Typewriter Effect */
+.typewriter {
+    display: inline-block;
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0 auto 40px; 
+    border-right: .15em solid var(--neon-cyan); 
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+.typewriter p {
+    margin: 0;
+    color: var(--text-muted);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--neon-cyan); }
+}
+
+/* 10.3 Download CV Button */
+.btn-download {
+    background: rgba(10, 255, 0, 0.1);
+    border: 1px solid var(--neon-green) !important;
+    color: var(--neon-green) !important;
+    box-shadow: 0 0 5px rgba(10, 255, 0, 0.2);
+}
+
+.btn-download:hover {
+    background: rgba(10, 255, 0, 0.2) !important;
+    box-shadow: 0 0 20px rgba(10, 255, 0, 0.6) !important;
+    transform: translateY(-3px);
+    text-shadow: 0 0 5px var(--neon-green);
+    color: #fff !important;
+}
+
+/* 10.4 Tech Stack Badges (Inventory Slots) */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; 
+}
+
+.skill-card {
+    flex: 0 1 auto; 
+    width: auto;
+    min-width: 140px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #333;
+    border-radius: 4px; 
+    flex-direction: row; 
+    gap: 12px;
+}
+
+.skill-card i {
+    font-size: 1.5rem; 
+}
+
+.skill-card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: inset 0 0 15px rgba(0, 243, 255, 0.2), 0 0 10px rgba(0, 243, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* 10.5 Project Status Tags */
+.status-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 8px;
+    border: 1px solid;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    backdrop-filter: blur(2px);
+    z-index: 2;
+}
+
+.status-deployed {
+    color: var(--neon-green);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 5px rgba(10, 255, 0, 0.4);
+    background: rgba(10, 255, 0, 0.1);
+}
+
+.status-prototype {
+    color: #ffae00;
+    border-color: #ffae00;
+    box-shadow: 0 0 5px rgba(255, 174, 0, 0.4);
+    background: rgba(255, 174, 0, 0.1);
+}
+
+.status-beta {
+    color: var(--neon-blue);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 5px rgba(0, 102, 255, 0.4);
+    background: rgba(0, 102, 255, 0.1);
+}
+
+/* Mobile Tweaks for Typewriter */
+@media (max-width: 600px) {
+    .typewriter {
+        white-space: normal;
+        border-right: none;
+        animation: none;
+        width: auto;
+    }
+    
+    .typewriter p {
+        border-right: none;
+    }
+    
+    .system-status {
+        top: 10px;
+        right: 50%;
+        transform: translateX(50%);
+        width: max-content;
+    }
+}
+
+/* 10.6 Contact Terminal Card */
+.contact-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,20,40,0.9));
+    border: 1px solid var(--neon-cyan);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* "Scanning" Line Animation */
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan);
+    opacity: 0.5;
+    animation: scanLine 3s linear infinite;
+}
+
+@keyframes scanLine {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.contact-card h3 {
+    color: var(--neon-cyan);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-card h3 i {
+    margin-right: 10px;
+    animation: pulse 2s infinite;
+}
+
+.contact-card p {
+    margin-bottom: 30px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+/* Link overrides for card */
+.contact-card .social-links a {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.contact-card .social-links a:hover {
+    border-color: var(--neon-cyan);
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+    text-shadow: none; /* Reset global text-shadow */
+    transform: translateY(-2px);
+}
+
+/* --- 11. JS Feature Styles (Added) --- */
+
+/* 11.1 Matrix Rain Canvas */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind everything */
+    opacity: 0.08; /* Very subtle */
+    pointer-events: none;
+}
+
+/* 11.2 Custom Cursor */
+@media (min-width: 992px) {
+    body { cursor: none; }
+    a, button { cursor: none; }
+}
+
+.cursor {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--neon-cyan);
+    position: fixed;
+    transform: translate(-50%, -50%) rotate(45deg); /* Diamond shape */
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 10px var(--neon-cyan);
+    transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s;
+    mix-blend-mode: difference;
+    animation: cursorSpin 4s linear infinite;
+}
+
+/* Crosshair lines */
+.cursor::after, .cursor::before {
+    content: '';
+    position: absolute;
+    background: var(--neon-cyan);
+}
+
+.cursor::before {
+    top: 50%; left: -10px; width: 50px; height: 1px; transform: translateY(-50%);
+}
+
+.cursor::after {
+    left: 50%; top: -10px; height: 50px; width: 1px; transform: translateX(-50%);
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--neon-purple); /* Contrast color */
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    box-shadow: 0 0 5px var(--neon-purple);
+}
+
+@keyframes cursorSpin {
+    0% { transform: translate(-50%, -50%) rotate(45deg); }
+    100% { transform: translate(-50%, -50%) rotate(405deg); } /* Full spin */
+}
+
+/* Hover state for cursor */
+.cursor-hover {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 243, 255, 0.1);
+    border-color: var(--neon-green);
+    animation-duration: 1s; /* Spin faster */
+}
+
+/* 11.3 Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 11.4 Glitch Effect Class */
+.glitch-active {
+    animation: glitch-anim 0.2s cubic-bezier(.25, .46, .45, .94) both infinite;
+    color: var(--neon-pink);
+    text-shadow: 2px 0 var(--neon-blue), -2px 0 var(--neon-green);
+}
+
+@keyframes glitch-anim {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+}
