@@ -691,6 +691,34 @@ footer {
     transform: translateY(-2px);
 }
 
+/* 10.7 COA Certificate Section */
+.coa-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    background: var(--bg-card);
+    border: var(--glass-border);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 18px rgba(0, 243, 255, 0.12);
+    text-align: center;
+}
+
+.coa-card p {
+    margin-bottom: 18px;
+    font-family: 'Courier New', monospace;
+}
+
+.coa-image {
+    width: 100%;
+    max-height: 560px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    box-shadow: 0 0 16px rgba(0, 243, 255, 0.2);
+    background: rgba(0, 0, 0, 0.35);
+}
+
 /* --- 11. JS Feature Styles (Added) --- */
 
 /* 11.1 Matrix Rain Canvas */
@@ -703,67 +731,6 @@ footer {
     z-index: -1; /* Behind everything */
     opacity: 0.08; /* Very subtle */
     pointer-events: none;
-}
-
-/* 11.2 Custom Cursor */
-@media (min-width: 992px) {
-    body { cursor: none; }
-    a, button { cursor: none; }
-}
-
-.cursor {
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--neon-cyan);
-    position: fixed;
-    transform: translate(-50%, -50%) rotate(45deg); /* Diamond shape */
-    pointer-events: none;
-    z-index: 9999;
-    box-shadow: 0 0 10px var(--neon-cyan);
-    transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s;
-    mix-blend-mode: difference;
-    animation: cursorSpin 4s linear infinite;
-}
-
-/* Crosshair lines */
-.cursor::after, .cursor::before {
-    content: '';
-    position: absolute;
-    background: var(--neon-cyan);
-}
-
-.cursor::before {
-    top: 50%; left: -10px; width: 50px; height: 1px; transform: translateY(-50%);
-}
-
-.cursor::after {
-    left: 50%; top: -10px; height: 50px; width: 1px; transform: translateX(-50%);
-}
-
-.cursor-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--neon-purple); /* Contrast color */
-    border-radius: 50%;
-    position: fixed;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 10000;
-    box-shadow: 0 0 5px var(--neon-purple);
-}
-
-@keyframes cursorSpin {
-    0% { transform: translate(-50%, -50%) rotate(45deg); }
-    100% { transform: translate(-50%, -50%) rotate(405deg); } /* Full spin */
-}
-
-/* Hover state for cursor */
-.cursor-hover {
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 243, 255, 0.1);
-    border-color: var(--neon-green);
-    animation-duration: 1s; /* Spin faster */
 }
 
 /* 11.3 Scroll Reveal */

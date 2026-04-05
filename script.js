@@ -1,6 +1,6 @@
 /* 
    Cyberpunk Functions
-   Includes: Matrix Rain, Custom Cursor, Scroll Reveal, Terminal Inputs, Glitch
+    Includes: Matrix Rain, Scroll Reveal, Terminal Inputs, Glitch
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -84,33 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.height = window.innerHeight;
         // Optionally reset particles or let them drift
     });
-
-
-    // --- 2. Custom Cyber Cursor ---
-    const cursor = document.querySelector('.cursor');
-    const cursorDot = document.querySelector('.cursor-dot');
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        
-        // Slight lag for the dot/follower
-        setTimeout(() => {
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-        }, 50);
-    });
-
-    // Hover effects for cursor
-    document.querySelectorAll('a, button, .skill-card, .project-card').forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            cursor.classList.add('cursor-hover');
-        });
-        item.addEventListener('mouseleave', () => {
-            cursor.classList.remove('cursor-hover');
-        });
-    });
-
 
     // --- 3. Scroll Reveal Animations ---
     const observerOptions = {
