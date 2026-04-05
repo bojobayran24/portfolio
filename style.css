@@ -592,6 +592,13 @@ footer {
     background: rgba(0, 102, 255, 0.1);
 }
 
+.status-ready {
+    color: #ffae00;
+    border-color: #ffae00;
+    box-shadow: 0 0 5px rgba(255, 174, 0, 0.4);
+    background: rgba(255, 174, 0, 0.1);
+}
+
 /* Mobile Tweaks for Typewriter */
 @media (max-width: 600px) {
     .typewriter {
