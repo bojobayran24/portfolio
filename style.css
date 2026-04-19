@@ -351,10 +351,19 @@ section h3::after {
 .project-card:nth-child(5) .icon-header i { color: var(--neon-purple); } /* TAMS */
 .project-card:nth-child(6) .icon-header i { color: var(--neon-green); } /* COLMS */
 .project-card:nth-child(7) .icon-header i { color: var(--neon-cyan); } /* FOLMS */
-.project-card:nth-child(8) .icon-header i { color: #ffffff; } /* EOS */
+.project-card:nth-child(8) .icon-header i { color: #00d2ff; } /* AUCS-MED - medical blue */
 .project-card:nth-child(9) .icon-header i { color: #00ffaa; } /* Transmittal */
 .project-card:nth-child(10) .icon-header i { color: #ffae00; } /* POS */
-.project-card:nth-child(11) .icon-header i { color: var(--neon-purple); } /* Logistics Old */
+.project-card:nth-child(11) .icon-header i { color: var(--neon-purple); } /* TAMS */
+.project-card:nth-child(12) .icon-header i { color: #ff6b6b; }            /* COLMS - coral red */
+.project-card:nth-child(13) .icon-header i { color: #ffd93d; }            /* FOLMS - yellow */
+.project-card:nth-child(14) .icon-header i { color: #ff4757; }            /* EOS - red */
+.project-card:nth-child(15) .icon-header i { color: #2ed573; }            /* DTR Transmittal - green */
+.project-card:nth-child(16) .icon-header i { color: #ffae00; }            /* POS - gold */
+.project-card:nth-child(17) .icon-header i { color: #1e90ff; }            /* Real-Time Logistics - blue */
+.project-card:nth-child(18) .icon-header i { color: #a29bfe; }            /* Nexols Website - soft purple */
+.project-card:nth-child(19) .icon-header i { color: #00cec9; }            /* Nexols CRM - teal */
+.project-card:nth-child(20) .icon-header i { color: #fd79a8; }            /* Nexols Client Portal - pink */
 
 
 .project-card h4 {
@@ -393,7 +402,34 @@ section h3::after {
 .project-card:nth-child(3):hover { border-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0, 102, 255, 0.4); }
 .project-card:nth-child(4):hover { border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
 .project-card:nth-child(5):hover { border-color: var(--neon-purple); box-shadow: 0 0 20px rgba(188, 19, 254, 0.4); }
+.project-card:nth-child(12):hover { border-color: #ff6b6b; box-shadow: 0 0 20px rgba(255, 107, 107, 0.4); }
+.project-card:nth-child(13):hover { border-color: #ffd93d; box-shadow: 0 0 20px rgba(255, 217, 61, 0.4); }
+.project-card:nth-child(14):hover { border-color: #ff4757; box-shadow: 0 0 20px rgba(255, 71, 87, 0.4); }
+.project-card:nth-child(15):hover { border-color: #2ed573; box-shadow: 0 0 20px rgba(46, 213, 115, 0.4); }
+.project-card:nth-child(16):hover { border-color: #ffae00; box-shadow: 0 0 20px rgba(255, 174, 0, 0.4); }
+.project-card:nth-child(17):hover { border-color: #1e90ff; box-shadow: 0 0 20px rgba(30, 144, 255, 0.4); }
+.project-card:nth-child(18):hover { border-color: #a29bfe; box-shadow: 0 0 20px rgba(162, 155, 254, 0.4); }
+.project-card:nth-child(19):hover { border-color: #00cec9; box-shadow: 0 0 20px rgba(0, 206, 201, 0.4); }
+.project-card:nth-child(20):hover { border-color: #fd79a8; box-shadow: 0 0 20px rgba(253, 121, 168, 0.4); }
 
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    border: 1px solid var(--neon-cyan);
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.project-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+}
 
 /* --- 8. Contact & Footer --- */
 #contact {

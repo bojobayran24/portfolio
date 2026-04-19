@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "dbhub": {
+      "command": "dbhub",
+      "args": ["--transport", "stdio", "--dsn", "mysql://root:@localhost:3306/?sslmode=disable"],
+      "env": {}
+    }
+  }
+}
