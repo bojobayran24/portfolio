@@ -6,19 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bojooow | Systems Analyst & AI-Augmented Builder</title>
     <link rel="icon" type="image/png" href="bojoowlogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo"><img src="gradpicbojo.jpg" onerror="this.parentElement.innerHTML='BJ'" alt="Bojooow"></div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+            <div class="loader-text">INITIALIZING SYSTEM...</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <canvas id="matrix"></canvas>
 
+    <!-- Sticky Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <img src="bojoowlogo.png" alt="Bojooow Logo">
+                <span>Bojooow</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certificate" class="nav-link">Certificate</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
     <header id="home" class="reveal">
-        <div class="system-status"><span class="status-dot"></span> SYSTEM ONLINE</div>
         <div class="container">
+            <div class="hero-avatar">
+                <img src="gradpicbojo.jpg" alt="Bojooow">
+            </div>
             <h1>Hi, I'm <span class="highlight">Bojooow</span></h1>
             <h2>Systems Analyst | AI-Augmented Builder | 22 Years Old</h2>
+            <div class="hero-meta">
+                <span class="hero-meta-item"><i class="fas fa-map-marker-alt"></i> Philippines</span>
+                <span class="hero-meta-item"><i class="fas fa-circle" style="color: var(--neon-green); font-size: 0.5rem;"></i> Available for Hire</span>
+                <span class="hero-meta-item"><i class="fas fa-sitemap"></i> Systems Analyst & AI-Augmented Builder</span>
+            </div>
             <div class="typewriter">
                 <p>> Analyzing requirements. Designing solutions. Building with AI.</p>
             </div>
@@ -27,7 +71,35 @@
                 <a href="#experience" class="btn btn-outline">My Experience</a>
             </div>
         </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </header>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="20">0</span>
+                    <span class="stat-label">Total Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="14">0</span>
+                    <span class="stat-label">Deployed Systems</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">Active Builds</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1">0</span>
+                    <span class="stat-label">Year Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="skills" class="reveal">
         <div class="container">
@@ -248,9 +320,25 @@
     <section id="certificate" class="reveal">
         <div class="container">
             <h3>Certificate of Appreciation</h3>
-            <div class="coa-card">
-                <p>Scanned copy of Certificate of Appreciation from PSA Government for system development support.</p>
-                <img src="coa.jpg" alt="PSA Government Certificate of Appreciation" class="coa-image">
+            <div class="coa-wrapper">
+                <div class="coa-image-col">
+                    <div class="coa-image-frame">
+                        <img src="coa.jpg" alt="PSA Government Certificate of Appreciation" class="coa-image">
+                    </div>
+                </div>
+                <div class="coa-info-col">
+                    <div class="coa-badge"><i class="fas fa-award"></i> Official Recognition</div>
+                    <h4 class="coa-title">Certificate of Appreciation</h4>
+                    <p class="coa-org"><i class="fas fa-landmark"></i> Philippine Statistics Authority (PSA)</p>
+                    <p class="coa-org"><i class="fas fa-building"></i> Human Resources Division</p>
+                    <p class="coa-org"><i class="fas fa-calendar-alt"></i> January 27, 2026</p>
+                    <div class="coa-divider"></div>
+                    <p class="coa-desc">Awarded for valuable contributions and dedication during On-the-Job Training at the PSA Headquarters, Diliman, Quezon City. Recognized for demonstrating exceptional initiative and technical skill in designing and developing programs and systems that improved office operations.</p>
+                    <div class="coa-signed">
+                        <span class="coa-signee">CYNTHIA C. VALLESTEROS</span>
+                        <span class="coa-signee-title">Chief Administrative Officer, HRD</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -261,9 +349,14 @@
                 <h3><i class="fas fa-satellite-dish"></i> Establish Connection</h3>
                 <p>Ready to initialize a new project? Transmission channels are open.</p>
                 <div class="social-links">
-                    <a href="https://github.com/bojobayran24" target="_blank"><i class="fab fa-github"></i>
-                        bojobayran24</a>
-                    <a href="mailto:bojobayran24@gmail.com"><i class="fas fa-envelope"></i> bojobayran24@gmail.com</a>
+                    <a href="https://github.com/bojobayran24" target="_blank" rel="noopener noreferrer" class="social-btn">
+                        <i class="fab fa-github"></i>
+                        <span>bojobayran24</span>
+                    </a>
+                    <a href="mailto:bojobayran24@gmail.com" class="social-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span>bojobayran24@gmail.com</span>
+                    </a>
                 </div>
             </div>
         </div>
